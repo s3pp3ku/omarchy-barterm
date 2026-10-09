@@ -34,6 +34,8 @@ BarWidget {
   readonly property color fg: root.bar ? root.bar.barForeground : Color.foreground
   readonly property string fontName: root.bar ? root.bar.fontFamily : Style.font.family
   readonly property string mono: "monospace"
+  // Dragging in the input would fight with selecting text, so BarTerm is moved from Bar Manager instead.
+  readonly property bool draggable: false
 
   // Programs that need a real terminal.
   readonly property var tuiCommands: ["vim", "nvim", "vi", "nano", "emacs", "btop", "htop", "top", "less",
