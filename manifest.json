@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "s3pp3ku.tinyterminal",
+  "name": "TinyTerminal",
+  "version": "0.1.0",
+  "author": "s3pp3ku",
+  "license": "MIT",
+  "description": "A one-line command prompt for the bar. Enter runs the command in your shell and the output opens in a popup above the bar.",
+  "kinds": ["bar-widget"],
+  "entryPoints": { "barWidget": "BarWidget.qml" },
+  "barWidget": {
+    "displayName": "TinyTerminal",
+    "description": "Run a command from the bar and read the output in a popup",
+    "category": "Utilities",
+    "aliases": ["terminal", "command", "shell", "run"],
+    "allowMultiple": false,
+    "defaultSection": "left",
+    "defaults": { "inputWidth": 260, "gap": 4, "popupWidth": 640, "popupHeight": 280, "interactiveShell": false },
+    "schema": [
+      { "key": "inputWidth", "type": "number", "label": "Input width", "defaultValue": 260 },
+      { "key": "gap", "type": "number", "label": "Spaces between the logo and where you type", "defaultValue": 4 },
+      { "key": "popupWidth", "type": "number", "label": "Output popup width", "defaultValue": 640 },
+      { "key": "popupHeight", "type": "number", "label": "Output popup height", "defaultValue": 280 },
+      { "key": "interactiveShell", "type": "boolean", "label": "Load ~/.zshrc (aliases) for each command", "defaultValue": false }
+    ]
+  }
+}
