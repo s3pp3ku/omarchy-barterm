@@ -4,7 +4,7 @@ import Quickshell.Io
 import qs.Commons
 import qs.Ui
 
-// TinyTerminal for the bar: an "Omarchy  " prompt (accent coloured, so it
+// BarTerm: a command prompt for the bar: an "Omarchy  " prompt (accent coloured, so it
 // follows the theme), a few spaces, then a one-line input. Enter runs the
 // command in your interactive zsh and the output opens in a popup above (or
 // below) the bar. It is a command runner, not a terminal emulator: programs
@@ -15,10 +15,10 @@ import qs.Ui
 //    real tiled terminal automatically)
 //   Up / Down      history        Ctrl+C       stop the running command
 //   Esc            close popup and stop typing
-//   omarchy-shell s3pp3ku.tinyterminal focus|toggle|close   (bind a key)
+//   omarchy-shell s3pp3ku.barterm focus|toggle|close   (bind a key)
 BarWidget {
   id: root
-  moduleName: "s3pp3ku.tinyterminal"
+  moduleName: "s3pp3ku.barterm"
 
   // The host bar grants this widget the keyboard only while it is true.
   property bool typing: false
@@ -142,7 +142,7 @@ BarWidget {
   }
 
   IpcHandler {
-    target: "s3pp3ku.tinyterminal"
+    target: "s3pp3ku.barterm"
     function focus(): void { root.startTyping() }
     function toggle(): void { if (root.typing || root.popupOpen) root.close(); else root.startTyping() }
     function close(): void { root.close() }

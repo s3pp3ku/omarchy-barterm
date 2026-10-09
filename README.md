@@ -1,4 +1,4 @@
-# Omarchy TinyTerminal
+# Omarchy BarTerm
 
 A one-line command prompt for the [Omarchy](https://omarchy.org) bar. Type a command, press Enter, and the output opens in a themed popup above the bar, readable and scrollable, without leaving what you are doing.
 
@@ -11,7 +11,7 @@ The prompt is drawn in your theme's accent color, with a few spaces before where
 ## Install
 
 ```sh
-omarchy plugin add https://github.com/s3pp3ku/omarchy-tinyterminal.git --enable --yes
+omarchy plugin add https://github.com/s3pp3ku/omarchy-barterm.git --enable --yes
 ```
 
 It is a bar widget: add it to your bar, or host it in a bottom/side bar with [Extra Bars](https://github.com/s3pp3ku/omarchy-extra-bars).
@@ -20,7 +20,7 @@ It is a bar widget: add it to your bar, or host it in a bottom/side bar with [Ex
 
 | Key | Action |
 |---|---|
-| Click the input, or `omarchy-shell s3pp3ku.tinyterminal focus` | Start typing (bind the command to a key) |
+| Click the input, or `omarchy-shell s3pp3ku.barterm focus` | Start typing (bind the command to a key) |
 | Enter | Run the command; output opens in the popup |
 | Shift+Enter | Run in a real terminal window |
 | Up / Down | History |

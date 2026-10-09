@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "id": "s3pp3ku.tinyterminal",
-  "name": "TinyTerminal",
+  "id": "s3pp3ku.barterm",
+  "name": "BarTerm",
   "version": "0.1.0",
   "author": "s3pp3ku",
   "license": "MIT",
@@ -9,7 +9,7 @@
   "kinds": ["bar-widget"],
   "entryPoints": { "barWidget": "BarWidget.qml" },
   "barWidget": {
-    "displayName": "TinyTerminal",
+    "displayName": "BarTerm",
     "description": "Run a command from the bar and read the output in a popup",
     "category": "Utilities",
     "aliases": ["terminal", "command", "shell", "run"],
