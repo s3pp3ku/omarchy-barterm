@@ -37,7 +37,7 @@ BarWidget {
 
   // Programs that need a real terminal.
   readonly property var tuiCommands: ["vim", "nvim", "vi", "nano", "emacs", "btop", "htop", "top", "less",
-                                      "man", "ssh", "yazi", "ranger", "mc", "tmux", "herdr", "fzf", "watch"]
+                                      "man", "ssh", "yazi", "ranger", "mc", "tmux", "herdr", "fzf", "gum", "watch"]
 
   // ---- state ---------------------------------------------------------------
   property bool popupOpen: false
@@ -110,6 +110,10 @@ BarWidget {
     // sudo/su/pkexec ask for a password on a TTY and there is none here, so
     // those go to a real (tiled) terminal window, as do full-screen programs.
     var needsTty = /(^|[\s;&|(])(sudo|su|pkexec|doas|passwd)(\s|$)/.test(cmd)
+    // Plugin installs/removals ask for confirmation with gum menus (and a bar-section picker),
+    // which also need a real terminal unless --yes skips them.
+    if (!needsTty && /omarchy[ -]plugin[ -](add|install|remove|uninstall|update)/.test(cmd) && !/(--yes|\s-y(\s|$))/.test(cmd))
+      needsTty = true
     if (inTerminal || needsTty || tuiCommands.indexOf(first) !== -1) {
       openInTerminal(cmd)
       return
