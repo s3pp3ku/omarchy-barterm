@@ -85,9 +85,16 @@ BarWidget {
     output = next.length > 200000 ? next.slice(next.length - 150000) : next
   }
 
+  // `zsh -c` skips ~/.zshrc, so a sudo() wrapper defined there (e.g. a banner
+  // shown before the password prompt) would be missing in the terminal we open.
+  // Load just that wrapper, found by its marker comment, and none of the rest
+  // of .zshrc (which would also print a fastfetch banner). No match = no-op.
+  readonly property string sudoSignature:
+    "source <(awk '/^# Chuck Norris sudo signature/{p=1} p{print} p&&seen&&/^}/{exit} /^sudo\\(\\) \\{/{if(p)seen=1}' ~/.zshrc) 2>/dev/null; "
+
   function openInTerminal(cmd) {
     Quickshell.execDetached({
-      command: ["xdg-terminal-exec", "zsh", "-c", cmd + "; echo; read -k1 '?Press any key to close'"],
+      command: ["xdg-terminal-exec", "zsh", "-c", root.sudoSignature + cmd + "; echo; read -k1 '?Press any key to close'"],
       workingDirectory: root.cwd
     })
   }
